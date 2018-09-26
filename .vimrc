@@ -1,18 +1,21 @@
-" basic setting File
+"""""""""""""""""""""""""
+"->author kamimura
+"->twitter:@kamimura-dev
+"""""""""""""""""""""""""
 
 """""""""""""""""""""""""
-"->leadermap <Space>
+"->@leadermap <Space>
 """""""""""""""""""""""""
 let mapleader="\<Space>"
 let g:mapleader="\<Space>"
 
 """""""""""""""""""""""""
-"->encoding
+"->@encoding
 """""""""""""""""""""""""
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 
 """""""""""""""""""""""""
-"->base setting
+"->@base setting
 """""""""""""""""""""""""
 set t_Co=256 "color 256
 set nocompatible 
@@ -21,27 +24,27 @@ syntax on
 "syntax enable
 
 """""""""""""""""""""""""
-"->schema & color
+"->@schema & color
 """""""""""""""""""""""""
 "hi Comment ctermfg=blue "コメントのカラーを青に変える 
 hi Normal ctermfg=none
 
 """""""""""""""""""""""""
-"->No backup
+"->@No backup
 """""""""""""""""""""""""
 set nobackup
 set noswapfile
 set nowb
 
 """""""""""""""""""""""""
-"->serch
+"->@search
 """""""""""""""""""""""""
 set incsearch
 set ignorecase "検索時に大小文字の区別を無視する
 set hlsearch "検索時にハイライト
 
 """""""""""""""""""""""""
-"->editor settings
+"->@base settings
 """""""""""""""""""""""""
 set autoread "内容が変更されたら自動的に読み込む
 set hidden "複数のファイルを編集可能にする
@@ -60,7 +63,7 @@ highlight LineNr ctermfg=15 "ナンバーのハイライト
 set scrolloff=5
 
 """""""""""""""""""""""""
-"->Indent and Tab 
+"->@Indent and Tab 
 """""""""""""""""""""""""
 set autoindent
 "set noautoindent "インデントさせない
@@ -71,22 +74,26 @@ set shiftwidth=4
 set expandtab
 
 """""""""""""""""""""""""
-"->Filetype
+"->@Language Filetype
 """""""""""""""""""""""""
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
 autocmd Filetype ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 autocmd FileType go setlocal tabstop=2 shiftwidth=2 softtabstop=4 textwidth=120
 autocmd FileType json setlocal tabstop=2 shiftwidth=2 softtabstop=4 textwidth=120
+autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=4 textwidth=120
+autocmd FileType ejs setlocal tabstop=2 shiftwidth=2 softtabstop=4 textwidth=120
+autocmd FileType erb setlocal tabstop=2 shiftwidth=2 softtabstop=4 textwidth=120
 autocmd FileType vue syntax sync fromstart
+autocmd BufRead,BufNewFile *.ts,*.tsx,*.ts set filetype=typescript
 
 """""""""""""""""""""""""
-"->auto-save
+"->@auto-save
 """""""""""""""""""""""""
-"let g:auto_save=1
+"let g:auto_save=1 保存時に自動的にセーブ
 
 """""""""""""""""""""""""
-"->Plugin
+"->@NeoBundle Plugin
 """""""""""""""""""""""""
 if &compatible
   set nocompatible
@@ -100,8 +107,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "NeoBundle setting
 NeoBundle 'VundleVim/Vundle.vim'
 NeoBundle 'Shougo/neocomplcache'
+
 "color shceme
-NeoBundle 'morhetz/gruvbox'
+NeoBundle 'morhetz/gruvbox' "default
+NeoBundle 'rakr/vim-one'
 
 "IDE
 NeoBundle 'scrooloose/nerdtree'
@@ -116,7 +125,6 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'mileszs/ack.vim'
-
 "NeoBundle 'ervandew/supertab'
 "NeoBundle 'airblade/vim-gitgutter'
 
@@ -124,7 +132,7 @@ NeoBundle 'mileszs/ack.vim'
 NeoBundle 'terryma/vim-multiple-cursors'
 
 "NeoBundle 'yggdroot/indentline'
-"NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-fugitive'
 "NeoBundle 'humiaozuzu/TabBar'
 "NeoBundle 'valloric/youcompleteme'
 NeoBundle 'shougo/unite.vim'
@@ -135,15 +143,18 @@ NeoBundle 'alvan/vim-closetag'
 "web frontend
 NeoBundle 'othree/html5.vim'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'peitaln/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'posva/vim-vue'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-endwise' "ruby end tag
-NeoBundle 'leafgarlang/typescript-vim'
+NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'peitalin/vim-jsx-typescript'
 NeoBundle 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+NeoBundle 'heavenshell/vim-jsdoc'
 
 "wakatime code traffic *https://wakatime.com/
 NeoBundle 'wakatime/vim-wakatime'
@@ -154,27 +165,31 @@ filetype plugin indent on
 call neobundle#end()
 
 """""""""""""""""""""""
-"->colorscheme
+"->@colorscheme
 """""""""""""""""""""""
-"color molokai
-color gruvbox
+"color gruvbox
+color one
 set background=dark
 "let g:gruvbox_italic=1
 
 """""""""""""""""""""""
-"->NERDTree
+"->@NERDTree
 """""""""""""""""""""""
 let NERDChristmasTree=0
-let NERDTreeWinSize=13
+let NERDTreeWinSize=20
 let NERDTreeChDirMode=2
 let NERDTreeShowBookmarks=1
 
 "key map
 map <C-a> :NERDTreeToggle<CR>
 "map <leader>w :NERDTreeToggle<CR>
+noremap <Leader>n :NERDTreeToggle<cr>
+noremap <Leader>f :NERDTreeFind<cr>
+
+let NERDTreeIgnore=['\.vim$', '\~$', '\.git$', '.DS_Store']
 
 """""""""""""""""""""""""""""""""
-"->neocompletecash
+"->@neocompletecash
 """"""""""""""""""""""""""""""""
 " disable autocomplpop.
 let g:acp_enableatstartup = 0
@@ -216,7 +231,7 @@ inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()"
 
 """""""""""""""""""""""""""""""""""""
-"->close tag
+"->@close tag
 """"""""""""""""""""""""""""""""""""
 "set ts=2 sw=2 et
 let g:indent_guildes_start_level = 2
@@ -230,7 +245,7 @@ set conceallevel=1
 let g:jsx_ext_required = 1 
 
 """"""""""""""""""""""""""""""
-"->Unite vim leadermap <Space>
+"->@Unite vim leadermap <Space>
 """"""""""""""""""""""""""""""
 nnoremap [unite] <Nop>
 nmap <Space> [unite]
@@ -238,10 +253,10 @@ nmap <silent> [unite]f :<C-u>Unite file<CR>
 nmap <silent> [unite]b :<C-u>Unite buffer<CR>
 
 "alvan/vim-closetag'
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.js'
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.js,*tsx,*ts'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx,*.ts'
 let g:closetag_emptyTags_caseSensitive = 1
-
+let g:closetag_shortcut = '>'
 "set clipboard+=unnamed,autoselect
 set clipboard=unnamedplus
 
@@ -249,13 +264,13 @@ set clipboard=unnamedplus
 set ft=jsx
 
 """"""""""""""""""""""""""""""
-"->インサートモード時に行頭、行末に移動
+"->@インサートモード時に行頭、行末に移動
 """"""""""""""""""""""""""""""
 inoremap <C-l> <Esc>$a
 inoremap <C-a> <Esc>^a
 
 """"""""""""""""""""""""""""""
-"->fast save
+"->@fast save
 """"""""""""""""""""""""""""""
 "nmap <leader>q :q!<cr>
 map <leader>w :w!<cr>
@@ -264,20 +279,26 @@ map <leader>w :w!<cr>
 "let g:Tb_MaxSize = 2
 "let g:Tb_MaxWrap = 1
 
-"easy-motion
+""""""""""""""""""""""""""""""
+"->@easy motion
+""""""""""""""""""""""""""""""
 let g:EasyMotion_leader_key = '<Leader>'
 
-"snippet
+""""""""""""""""""""""""""""""
+"->@airline
+""""""""""""""""""""""""""""""
+let g:airline#extensions#tabline#enabled = 1
+nmap <C-p> <Plug>AirlineSelectPrevTab
+nmap <C-n> <Plug>AirlineSelectNextTab
+
+""""""""""""""""""""""""""""""
+"->@snippet
+""""""""""""""""""""""""""""""
 let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/snippets/'
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-"airine
-let g:airline#extensions#tabline#enabled = 1
-nmap <C-p> <Plug>AirlineSelectPrevTab
-nmap <C-n> <Plug>AirlineSelectNextTab
 
 "leader + oで新しいファイル
 nnoremap <Leader>o :CtrlP<CR>
@@ -295,33 +316,52 @@ vmap <Leader>P "+P
 
 let g:user_emmet_settings = {
     \  'javascript' : {
-    \      'extends' : 'jsx',
+    \      'extends' : 'jsx,tsx'
     \  },
 \}
 
-"typescript
+""""""""""""""""""""""""""""""
+"->@typescript
+""""""""""""""""""""""""""""""
 let g:typescript_indent_disable = 1
 
+""""""""""""""""""""""""""""""
+"->@indent guide
+""""""""""""""""""""""""""""""
 let g:intent_guildes_enable_on_vim_startup=1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
-"prettier
+""""""""""""""""""""""""""""""
+"->@prettier
+""""""""""""""""""""""""""""""
 nmap <Leader>py <Plug>(Prettier)
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
 
-"windowの移動 
+""""""""""""""""""""""""""""""
+"->@windowの移動 
+""""""""""""""""""""""""""""""
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
 nnoremap <Leader>h <C-w>h
 nnoremap <Leader>l <C-w>l
 
-"shift + ^,hで右端に移動
-nnoremap <S-h> ^
-nnoremap <S-l> $
+""""""""""""""""""""""""""""""
+"->@linter check
+""""""""""""""""""""""""""""""
+let g:syntastic_javascript_checkers=['eslint']
 
-"xをyankさせない
-nnoremap x "_x
-nnoremap D "_D"
+""""""""""""""""""""""""""""""
+"->@jsdoc
+""""""""""""""""""""""""""""""
+nmap <silent> <C-l> <Plug>(jsdoc)
+
+""""""""""""""""""""""""""""""
+"->@fugitive
+""""""""""""""""""""""""""""""
+nnoremap <leader>ga :Git add %:p<CR><CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gp :Gpush<CR>
+vnoremap <leader>gb :Gblame<CR>
