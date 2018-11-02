@@ -32,6 +32,10 @@ setopt autocd #ディレクトリ名でcd
 setopt hist_ignore_all_dups #同じコマンドをヒストリに残さない
 setopt correct #コマンドミスを修正
 
+#vim
+alias vi='vim'
+alias nvi='nvim'
+
 #alias
 alias sodo='sudo '
 alias tmux="TERM=screen-256color-bce tmux"
@@ -43,8 +47,25 @@ alias tk=tmux kill-server
 #git
 alias init='git init'
 alias push='git push'
-alias cm='git commit -m'
+alias commit='git commit -m'
 alias add='git add .'
-alias gl='git log'
-alias gs='git status'
+alias log='git log'
+alias st='git status'
 alias gca='git commit -am'
+alias reset='git reset --hard HEAD'
+
+#docker
+alias dl='docker ps -l -q'
+alias db='docker build .'
+alias dr='docker run'
+alias dc='docker-compose up'
+alias dcd='docker-compose up -d'
+alias dcd='docker rm $(docker ps -a -q)'
+alias did='docker rmi $(docker images -q)'
+
+# Autostart if not already in tmux.
+if [[ ! -n $TMUX ]]; then
+  tmux new-session
+fi
+
+export GOPATH=$HOME/go
