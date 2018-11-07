@@ -1,18 +1,12 @@
-"""""""""""""""""""""""""
+"vim setting
 "->@leadermap <Space>
-"""""""""""""""""""""""""
 let mapleader="\<Space>"
 let g:mapleader="\<Space>"
 
-"""""""""""""""""""""""""
 "->@encoding
-"""""""""""""""""""""""""
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 
-
-"""""""""""""""""""""""""
 "->@base setting
-"""""""""""""""""""""""""
 set t_Co=256 "color 256
 set nocompatible 
 filetype plugin indent on
@@ -20,31 +14,25 @@ syntax on
 "syntax enable
 set backspace=indent,eol,start
 "set clipboard+=unnamed,autoselect
-set clipboard+=unnamed
+"set clipboard+=unnamed
+set clipboard+=unnamedplus
+set ttimeoutlen=10 "キーコードシーケンスの時間を短くする
 
-"""""""""""""""""""""""""
 "->@schema & color
-"""""""""""""""""""""""""
 "hi Comment ctermfg=blue "コメントのカラーを青に変える 
 hi Normal ctermfg=none
 
-"""""""""""""""""""""""""
 "->@No backup
-"""""""""""""""""""""""""
 set nobackup
 set noswapfile
 set nowb
 
-"""""""""""""""""""""""""
 "->@search
-"""""""""""""""""""""""""
 set incsearch
 set ignorecase "検索時に大小文字の区別を無視する
 set hlsearch "検索時にハイライト
 
-"""""""""""""""""""""""""
 "->@base settings
-"""""""""""""""""""""""""
 set autoread "内容が変更されたら自動的に読み込む
 set hidden "複数のファイルを編集可能にする
 set history=1000
@@ -63,9 +51,7 @@ set laststatus=2 "ステータスラインを表示
 highlight LineNr ctermfg=15 "ナンバーのハイライト 
 set scrolloff=5
 
-"""""""""""""""""""""""""
 "->@Indent and Tab 
-"""""""""""""""""""""""""
 set autoindent
 "set noautoindent "インデントさせない
 set smartindent
@@ -74,9 +60,7 @@ set softtabstop=4
 set shiftwidth=4
 "set expandtab
 
-"""""""""""""""""""""""""
 "->@Language Filetype
-"""""""""""""""""""""""""
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
 autocmd Filetype ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
@@ -89,9 +73,7 @@ autocmd Filetype vue setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 autocmd BufRead,BufNewFile *.ts,*.tsx,*.ts set filetype=typescript
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 
-"""""""""""""""""""""""""
 "->@plugin 
-"""""""""""""""""""""""""
 if &compatible
   set nocompatible
 endif
@@ -102,6 +84,7 @@ if dein#load_state('~/.cache/dein')
 		call dein#add('Shougo/deoplete.nvim')
 		call dein#add('Shougo/neosnippet')
 		call dein#add('Shougo/neosnippet-snippets')
+		call dein#add('HerringtonDarkholme/yats.vim')
 
 		if has('python3')
 				call dein#add('Shougo/denite.nvim')
@@ -119,9 +102,8 @@ endif
 filetype plugin indent on
 syntax enable
 
-"""""""""""""""""""""""
 "->@colorscheme
-"""""""""""""""""""""""
+"color nova-vim 
 color gruvbox
 set background=dark
 
@@ -242,3 +224,43 @@ let g:EasyMotion_leader_key = '<Leader>'
 nnoremap [denite] <Nop>
 nmap <silent> [denite]f :<C-u>Denite file<CR>
 nmap <silent> [denite]b :<C-u>Denite buffer<CR>
+
+set conceallevel=0
+let g:vim_json_syntax_conceal=0
+
+
+""""""""""""""""""""""""""""""
+"->@syntastic
+""""""""""""""""""""""""""""""
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+
+"shift + で右端に移動
+nnoremap <S-h> ^
+nnoremap <S-l> $
+
+" Tab Shortcuts
+nnoremap tk :tabfirst<CR>
+nnoremap tl :tabnext<CR>
+nnoremap th :tabprev<CR>
+nnoremap tj :tablast<CR>
+nnoremap tn :tabnew<CR>
+nnoremap tc :CtrlSpaceTabLabel<CR>
+nnoremap td :tabclose<CR>
+
+let g:deoplete#enable_at_startup = 1
+
+"deoplete
+noremap <expr><CR>   pumvisible() ? "\<C-n>" . deoplete#close_popup()  : "<CR>"
+
+inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  deoplete#close_popup()
+inoremap <expr><C-e>  deoplete#cancel_popup()"

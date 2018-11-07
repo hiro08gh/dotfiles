@@ -69,3 +69,4 @@ if [[ ! -n $TMUX ]]; then
 fi
 
 export GOPATH=$HOME/go
+KEYTIMEOUT=1
