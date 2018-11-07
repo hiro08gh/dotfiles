@@ -2,7 +2,7 @@
 repo = 'shougo/denite.nvim'
 
 [[plugins]]
-repo = 'Shougo/vimproc.vim'
+repo = 'shougo/vimproc.vim'
 
 # color
 [[plugins]]
@@ -17,9 +17,12 @@ repo = 'rakr/vim-one'
 [[plugins]]
 repo = 'cespare/vim-toml'
 
-# IDE
+# ide
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+hook_add = '''
+  source ~/.config/nvim/plugins/nerdtree.vim
+'''
 
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
@@ -32,6 +35,9 @@ repo = 'mattn/emmet-vim'
 
 [[plugins]]
 repo = 'scrooloose/syntastic'
+hook_add = '''
+  source ~/.config/nvim/plugins/syntastic.vim
+'''
 
 [[plugins]]
 repo = 'tpope/vim-surround'
@@ -105,3 +111,9 @@ repo = 'elzr/vim-json'
 
 [[plugins]]
 repo = 'jez/vim-github-hub'
+
+[[plugins]]
+repo = 'jparise/vim-graphql'
+
+[[plugins]]
+repo = 'w0rp/ale'
