@@ -1,7 +1,6 @@
-"""""""""""""""""""""""""
-"->author kamimura
-"->twitter:@kamimura-dev
-"""""""""""""""""""""""""
+"->author hiro08 
+"->twitter:https://twitter.com/hiro08gh
+"->GitHub:https://github.com/hiro08gh
 
 """""""""""""""""""""""""
 "->@leadermap <Space>
@@ -34,7 +33,7 @@ hi Normal ctermfg=none
 """""""""""""""""""""""""
 set nobackup
 set noswapfile
-set nowb
+set nowb 
 
 """""""""""""""""""""""""
 "->@search
