@@ -1,10 +1,10 @@
-export ZSH="/Users/hiro08/.oh-my-zsh"
+export ZSH="/home/hiro08/.oh-my-zsh"
 
-ZSH_THEME="robbyrussell"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+ZSH_THEME="robbyrussell"
 #zsh間でヒストリを共有
 setopt share_history
 setopt no_beep #beep音を無効にする
@@ -26,14 +26,15 @@ alias t=tmux
 alias tk=tmux kill-server
 
 #git
-alias init='git init'
-alias push='git push'
-alias commit='git commit -m'
-alias add='git add .'
-alias log='git log'
-alias st='git status'
+alias gi='git init'
+alias gp='git push'
+alias gc='git commit -m'
+alias ga='git add .'
+alias gl='git log'
+alias gs='git status'
 alias gca='git commit -am'
-alias reset='git reset --hard HEAD'
+alias gr='git fetch origin && git pull origin'
+alias grs='git reset --hard HEAD'
 
 #docker
 alias dl='docker ps -l -q'
@@ -53,32 +54,27 @@ alias kge='kubectl get event'
 alias kcv='kubectl config view'
 alias kal='minikube addons list'
 
+# amplify 
+alias ap='amplify push --yes'
+alias aps='amplify status'
+alias apl='amplify env pull'
+alias apw='amplify amplify-function-hotswap-plugin watch'
+
 # golang
 export GOPATH=${HOME}/go
 export PATH=$GOPATH/bin:$PATH
 export PYENV_ROOT=${HOME}/.pyenv
 
-# python 
-if [ -d "${PYENV_ROOT}" ]; then
-    export PATH=${PYENV_ROOT}/bin:$PATH
-    eval "$(pyenv init -)"
-fi
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+# Deno
+export DENO_INSTALL="/home/hiro08/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
 
-# flutter 
-export PATH="$PATH:`pwd`/flutter/bin"
 
-# 起動時にtmux起動 
-[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
+# GCP
+if [ -f '/home/hiro08/google-cloud-sdk/path.zsh.inc' ]; then . '/home/hiro08/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/hiro08/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/hiro08/google-cloud-sdk/completion.zsh.inc'; fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/hiro08/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/hiro08/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/hiro08/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/hiro08/google-cloud-sdk/completion.zsh.inc'; fi
-
-export PATH="$HOME/.rbenv/bin:$PATH"
+# serverless 
+export PATH="$HOME/.serverless/bin:$PATH"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
