@@ -1,10 +1,11 @@
 export ZSH="/home/hiro08/.oh-my-zsh"
 
+ZSH_THEME="robbyrussell"
+
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-ZSH_THEME="robbyrussell"
 #zsh間でヒストリを共有
 setopt share_history
 setopt no_beep #beep音を無効にする
@@ -15,9 +16,8 @@ setopt correct #コマンドミスを修正
 
 #vim
 alias vi='nvim'
-#alias nvi='nvim'
 
-#alias
+#basic
 alias sodo='sudo '
 alias tmux="TERM=screen-256color-bce tmux"
 alias c='clear'
@@ -35,6 +35,9 @@ alias gs='git status'
 alias gca='git commit -am'
 alias gr='git fetch origin && git pull origin'
 alias grs='git reset --hard HEAD'
+alias gs='git stash'
+alias gsl='git stash list'
+alias gsc='git stash clear'
 
 #docker
 alias dl='docker ps -l -q'
@@ -43,6 +46,7 @@ alias di='docker images'
 alias dr='docker run'
 alias dc='docker-compose up'
 alias dcd='docker-compose up -d'
+alias dst='docker stop $(docker ps -a -q)'
 alias dcd='docker rm $(docker ps -a -q)'
 alias did='docker rmi $(docker images -q)'
 
@@ -58,6 +62,7 @@ alias kal='minikube addons list'
 alias ap='amplify push --yes'
 alias aps='amplify status'
 alias apl='amplify env pull'
+alias abw='amplify amplify-function-hotswap-plugin watch'
 alias apw='amplify amplify-function-hotswap-plugin watch'
 
 # golang
@@ -69,11 +74,9 @@ export PYENV_ROOT=${HOME}/.pyenv
 export DENO_INSTALL="/home/hiro08/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
-
 # GCP
 if [ -f '/home/hiro08/google-cloud-sdk/path.zsh.inc' ]; then . '/home/hiro08/google-cloud-sdk/path.zsh.inc'; fi
 if [ -f '/home/hiro08/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/hiro08/google-cloud-sdk/completion.zsh.inc'; fi
-
 
 # serverless 
 export PATH="$HOME/.serverless/bin:$PATH"
