@@ -1,18 +1,21 @@
-# vim
+# Editor
 alias vi='nvim'
-
-# Basic
-alias sodo='sudo '
-alias tmux="TERM=screen-256color-bce tmux"
-alias c='clear'
-alias m="mkdir"
-alias t=tmux
-alias tk=tmux kill-server
+alias vs='code .'
 
 # Directory 
-alias work=cd $HOME/workspace/work
-alias app=cd $HOME/workspace/app
-alias oss=cd $HOME/workspace/oss
+alias work="cd $HOME/workspace/work"
+alias app="cd $HOME/workspace/app"
+alias oss="cd $HOME/workspace/oss"
+alias dot="cd $HOME/dotfiles"
+
+# Basic
+alias c='clear'
+alias m="mkdir"
+
+# tmux
+alias tmux="TERM=screen-256color-bce tmux"
+alias t=tmux
+alias tk=tmux kill-server
 
 # Git
 alias gi='git init'
@@ -28,9 +31,6 @@ alias gs='git stash'
 alias gsl='git stash list'
 alias gsc='git stash clear'
 
-# gh https://cli.github.com
-alias pr="gh pr create"
-
 # Docker
 alias dl='docker ps -l -q'
 alias db='docker build .'
@@ -38,7 +38,7 @@ alias di='docker images'
 alias dr='docker run'
 alias dc='docker-compose up'
 alias dcd='docker-compose up -d'
-alias dst='docker stop $(docker ps -a -q)'
+alias ds='docker stop $(docker ps -a -q)'
 alias dcd='docker rm $(docker ps -a -q)'
 alias did='docker rmi $(docker images -q)'
 
@@ -54,5 +54,4 @@ alias kal='minikube addons list'
 alias ap='amplify push --yes'
 alias aps='amplify status'
 alias apl='amplify env pull'
-alias apv='amplify --version'
 alias apw='amplify amplify-function-hotswap-plugin watch'
