@@ -18,6 +18,7 @@ alias t=tmux
 alias tk=tmux kill-server
 
 # Git
+alias g='git'
 alias gi='git init'
 alias gp='git push'
 alias gc='git commit -m'
