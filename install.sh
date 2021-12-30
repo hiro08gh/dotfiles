@@ -4,7 +4,8 @@
 HOME=${HOME}
 EXEC_PATH=${PWD}
 
-local dotfiles=(".zshrc")
+dotfiles=(".zshrc")
+
 for dotfile in "${dotfiles[@]}"
 do
     ln -sf "${EXEC_PATH}/${dotfile}" "${HOME}/${dotfile}"
