@@ -19,9 +19,6 @@ setopt autocd #ディレクトリ名でcd
 setopt hist_ignore_all_dups #同じコマンドをヒストリに残さない
 setopt correct #コマンドミスを修正
 
-# linuxbrew 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 # Python 
 export PYENV_ROOT=${HOME}/.pyenv
 
@@ -39,3 +36,7 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "${HOME}/google-cl
 
 # Serverless 
 export PATH="$HOME/.serverless/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

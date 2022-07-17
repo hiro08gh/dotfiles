@@ -1,5 +1,4 @@
 # Editor
-alias vi='nvim'
 alias vs='code .'
 
 # Directory 
@@ -55,4 +54,6 @@ alias kal='minikube addons list'
 alias ap='amplify push --yes'
 alias aps='amplify status'
 alias apl='amplify env pull'
+alias afa='amplify function add'
+alias afu='amplify function update'
 alias apw='amplify amplify-function-hotswap-plugin watch'
