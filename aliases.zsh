@@ -45,14 +45,6 @@ alias ds='docker stop $(docker ps -a -q)'
 alias dcd='docker rm $(docker ps -a -q)'
 alias did='docker rmi $(docker images -q)'
 
-# k8s
-alias kgp='kubectl get pod'
-alias kgs='kubectl get services'
-alias kgd='kubectl get deployments'
-alias kge='kubectl get event'
-alias kcv='kubectl config view'
-alias kal='minikube addons list'
-
 # Amplify 
 alias ap='amplify push --yes'
 alias aps='amplify status'
