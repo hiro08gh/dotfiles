@@ -1,5 +1,6 @@
 # Editor
 alias vs='code .'
+alias vi='nvim'
 
 # Directory 
 alias work="cd $HOME/workspace/work"
