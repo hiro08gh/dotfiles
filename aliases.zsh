@@ -45,11 +45,3 @@ alias dcd='docker-compose up -d'
 alias ds='docker stop $(docker ps -a -q)'
 alias dcd='docker rm $(docker ps -a -q)'
 alias did='docker rmi $(docker images -q)'
-
-# Amplify 
-alias ap='amplify push --yes'
-alias aps='amplify status'
-alias apl='amplify env pull'
-alias afa='amplify function add'
-alias afu='amplify function update'
-alias apw='amplify amplify-function-hotswap-plugin watch'
