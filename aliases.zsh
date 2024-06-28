@@ -45,3 +45,6 @@ alias dcd='docker-compose up -d'
 alias ds='docker stop $(docker ps -a -q)'
 alias dcd='docker rm $(docker ps -a -q)'
 alias did='docker rmi $(docker images -q)'
+
+# tasks 
+alias t='task'

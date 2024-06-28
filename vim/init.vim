@@ -1,5 +1,8 @@
-let mapleader="\<Space>"
-let g:mapleader="\<Space>"
+if !exists('g:vscode')
+  let mapleader="\<Space>"
+  let g:mapleader="\<Space>"
+endif
+
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 set t_Co=256 "color 256
 set nocompatible 
